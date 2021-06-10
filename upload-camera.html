@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cavandergold</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/animate.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <!--===============================================================================================-->
+
+</head>
+
+<body>
+  <h1 class="desk_hide_tiitle">Please, Open this app on phone.</h1>
+  <section class="index_page desk_hide" id="background-wrap">
+    <div class="container">
+      <div class="flex-row pt-3  text-center ">
+        <span class="label">Welcome to the club!</span>
+        <img class="wid" src="./images/2.png" alt="">
+      </div>
+      <div class="all">
+        <div class="row">
+          <div class="col-md-12 full_vh">
+            <div class="name-1_camera">
+              <form id="file-upload-form" class="uploader">
+                <div class="row">
+                  <div class="col-12 mbot">
+                    <!--  <label class="uploader"> -->
+                    <label for="file-upload" id="file-drag" class="uploader">
+                      <!-- <form id="file-upload-form" class="uploader"> -->
+                      <input id="file-upload" type="file" name="fileUpload" class="file_upload" accept="image/*"
+                        capture>
+
+                      <img id="file-image" src="#" alt="Preview" class="hidden">
+                      <div id="start">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <div class="">Upload GOLD Experience</div>
+                        <div id="notimage" class="hidden  text-white">Please select an image</div>
+                        <!-- <span id="file-upload-btn" class="btn btn-primary">Select a file</span> -->
+                      </div>
+                      <div id="response" class="hidden">
+                        <div id="messages"></div>
+                        <div class="progress" id="file-progress" value="0">
+                          <img src="./images/loading.gif">
+                        </div>
+                      </div>
+                      <!--   </form> -->
+                    </label>
+                    <!--       <input type="file" >
+                      <span class="icon">
+                        <svg viewBox="0 0 512 512" width="24" title="upload">
+                          <path d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z" />
+                        </svg>
+                      </span>
+                      <span class="placeholder">Upload Club Experience</span>
+                       -->
+
+                    <!--    </label> -->
+                    <button type="submit" class="btn btn-lg popup-button">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="footer_help">
+              <a class="icon_font" href="tel:8595947003" title="helpline"><span><svg xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="35px"
+                    height="35px"
+                    style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);position: relative;top:40px;"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                    <path
+                      d="M512 1024q-104 0-199-40.5t-163.5-109T40.5 711T0 512t40.5-199t109-163.5T313 40.5T512 0t199 40.5t163.5 109t109 163.5t40.5 199t-40.5 199t-109 163.5t-163.5 109t-199 40.5zm256-736q0-13-9.5-22.5T736 256H544q-13 0-22.5 9.5T512 288t9.5 22.5T544 320h110L522 452q-10 10-10 25t10.5 25t25 10t24.5-10l132-132v110q0 13 9.5 22.5T736 512t22.5-9.5T768 480V288zm0 352H640l-64 64q-64-17-151.5-105T320 448l64-64V256q-24-34-52-53t-42-5l-67 67q-55 55-16 173t150 229t229 150t173-16l67-67q14-14-4.5-46T768 640z"
+                      fill="#cb1233" /></svg></span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!--===============================================================================================-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js" type="javascript"></script>
+  <script>
+    // File Upload
+    // 
+    function ekUpload() {
+      function Init() {
+
+        console.log("Upload Initialised");
+
+        var fileSelect = document.getElementById('file-upload'),
+          fileDrag = document.getElementById('file-drag'),
+          submitButton = document.getElementById('submit-button');
+
+        fileSelect.addEventListener('change', fileSelectHandler, false);
+
+        // Is XHR2 available?
+        var xhr = new XMLHttpRequest();
+        if (xhr.upload) {
+          // File Drop
+          fileDrag.addEventListener('dragover', fileDragHover, false);
+          fileDrag.addEventListener('dragleave', fileDragHover, false);
+          fileDrag.addEventListener('drop', fileSelectHandler, false);
+        }
+      }
+
+      function fileDragHover(e) {
+        var fileDrag = document.getElementById('file-drag');
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        fileDrag.className = (e.type === 'dragover' ? 'hover' : 'modal-body file-upload');
+      }
+
+      function fileSelectHandler(e) {
+        // Fetch FileList object
+        var files = e.target.files || e.dataTransfer.files;
+
+        // Cancel event and hover styling
+        fileDragHover(e);
+
+        // Process all File objects
+        for (var i = 0, f; f = files[i]; i++) {
+          parseFile(f);
+          uploadFile(f);
+        }
+      }
+
+      // Output
+      function output(msg) {
+        // Response
+        var m = document.getElementById('messages');
+        m.innerHTML = msg;
+      }
+
+      function parseFile(file) {
+
+        console.log(file.name);
+        output(
+          '<strong>' + encodeURI(file.name) + '</strong>'
+        );
+
+        // var fileType = file.type;
+        // console.log(fileType);
+        var imageName = file.name;
+
+        var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
+        if (isGood) {
+          document.getElementById('start').classList.add("hidden");
+          document.getElementById('response').classList.remove("hidden");
+          document.getElementById('notimage').classList.add("hidden");
+          // Thumbnail Preview
+          document.getElementById('file-image').classList.remove("hidden");
+          document.getElementById('file-image').src = URL.createObjectURL(file);
+        } else {
+          document.getElementById('file-image').classList.add("hidden");
+          document.getElementById('notimage').classList.remove("hidden");
+          document.getElementById('start').classList.remove("hidden");
+          document.getElementById('response').classList.add("hidden");
+          document.getElementById("file-upload-form").reset();
+        }
+      }
+
+      function setProgressMaxValue(e) {
+        var pBar = document.getElementById('file-progress');
+
+        if (e.lengthComputable) {
+          pBar.max = e.total;
+        }
+      }
+
+      function updateFileProgress(e) {
+        var pBar = document.getElementById('file-progress');
+
+        if (e.lengthComputable) {
+          pBar.value = e.loaded;
+        }
+      }
+
+      function uploadFile(file) {
+
+        var xhr = new XMLHttpRequest(),
+          fileInput = document.getElementById('class-roster-file'),
+          pBar = document.getElementById('file-progress'),
+          fileSizeLimit = 1024; // In MB
+        if (xhr.upload) {
+          // Check if file is less than x MB
+          if (file.size <= fileSizeLimit * 1024 * 1024) {
+            // Progress bar
+            pBar.style.display = 'inline';
+            xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
+            xhr.upload.addEventListener('progress', updateFileProgress, false);
+
+            // File received / failed
+            xhr.onreadystatechange = function (e) {
+              if (xhr.readyState == 4) {
+                // Everything is good!
+
+                // progress.className = (xhr.status == 200 ? "success" : "failure");
+                // document.location.reload(true);
+              }
+            };
+
+            // Start upload
+            xhr.open('POST', document.getElementById('file-upload-form').action, true);
+            xhr.setRequestHeader('X-File-Name', file.name);
+            xhr.setRequestHeader('X-File-Size', file.size);
+            xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+            xhr.send(file);
+          } else {
+            output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
+          }
+        }
+      }
+
+      // Check for the various File API support.
+      if (window.File && window.FileList && window.FileReader) {
+        Init();
+      } else {
+        document.getElementById('file-drag').style.display = 'none';
+      }
+    }
+    ekUpload();
+  </script>
+</body>
+
+</html>
